@@ -68,7 +68,7 @@ function handleItemCheckClicked() {
 }
 
 function deleteListItem(itemId) {
-  STORE.splice(
+  return STORE.splice(
     STORE.findIndex((i) => i.id === itemId),
     1
   );
