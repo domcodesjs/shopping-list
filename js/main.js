@@ -67,13 +67,17 @@ function handleItemCheckClicked() {
   });
 }
 
+function deleteListItem(itemId) {
+  STORE.splice(
+    STORE.findIndex((i) => i.id === itemId),
+    1
+  );
+}
+
 function handleDeleteItemClicked() {
   $('.js-shopping-list').on('click', '.js-item-delete', (e) => {
     const id = getItemIdFromElement(e.currentTarget);
-    STORE.splice(
-      STORE.findIndex((i) => i.id === id),
-      1
-    );
+    deleteListItem(id);
     renderShoppingList();
   });
 }
